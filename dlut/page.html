@@ -1,0 +1,1925 @@
+
+
+
+
+<html lang="zh-CN">
+<head>
+<title>学生选课结果</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<link href="/css/newcss/project.css" rel="stylesheet" type="text/css">
+
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0" style="overflow:auto;">
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  function dy(){
+    var today = new Date();
+   var timeStr = today.format("YYYY年MM月dd日hh小时mm分ss秒");
+   var time = document.getElementById("xssj");
+   time.innerHTML=timeStr;
+   beforedy();
+   document.execCommand("print");
+   afterdy();
+  }
+  Date.prototype.format = function(format){
+	 var o = {
+	 "Y+" :  this.getFullYear(), 
+	  "M+" :  this.getMonth()+1,  //month
+	  "d+" :  this.getDate(),     //day
+	  "h+" :  this.getHours(),    //hour
+	      "m+" :  this.getMinutes(),  //minute
+	      "s+" :  this.getSeconds(), //second
+	      "q+" :  Math.floor((this.getMonth()+3)/3),  //quarter
+	      "S"  :  this.getMilliseconds() //millisecond
+	   }
+	   if(/(y+)/.test(format)) {
+	    format = format.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+	   }
+	 
+	   for(var k in o) {
+	    if(new RegExp("("+ k +")").test(format)) {
+	      format = format.replace(RegExp.$1, RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+	    }
+	   }
+	 return format;
+}
+  function beforedy(){
+    document.getElementById("tblHead").style.display="none";
+	
+  var  yhlbss =  document.getElementById("yhlb").value; 
+   if("01"== yhlbss){
+    document.getElementById("xsxx").style.display="";
+    document.getElementById("kbxx").style.display="none";
+   }
+    //document.getElementById("xsxx").style.display="";  //cxl
+    //document.getElementById("kbxx").style.display="none"; //cxl
+	
+  }
+  function afterdy(){
+    document.getElementById("tblHead").style.display="";
+     var  yhlbss =  document.getElementById("yhlb").value; 
+   if("01"== yhlbss){
+     document.getElementById("xsxx").style.display="none"; 
+     document.getElementById("kbxx").style.display="";
+	 document.getElementById("kclist").style.display="";
+   }
+   
+   
+   
+	
+  }
+</script>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr><td class="Linetop"></td>
+</tr>
+</table>
+     
+<input id="yhlb" type="hidden" name="yhlb" size="15" value="01" style="width: 50px;" />
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="title" id="tblHead">
+ <tr>
+  <td>
+   <table border="0" width="100%" cellpadding="0" cellspacing="0" >
+   <tr>
+   <td width="50%" align="left" valign="middle">&nbsp;<b>选课结果(已安排时间地点)</b>&nbsp;</td>
+
+<td width="50%" align="right">
+
+2016年05月16日12时19分
+
+<!-- 打印功能090604hnn -->
+<td width="10" align="center"><img  src="/img/icon/space.gif"></td>
+	                           <td width="10" align="center">
+	                           <img  src="/img/icon/print.gif" 
+	                           onClick="dy()" title="打印"  style="cursor:hand">
+	                           </td>
+
+</td>
+
+</tr>
+   </table>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"  >
+ <tr>
+  <td class="Linetop"></td>
+ </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/css/newcss/project.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+<!-- 学生信息090604hnn -->
+
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" id="xsxx" style="display:none">
+  <tr> 
+    <td class="infoBg1">&nbsp;</td>
+    <td class="infoBg2"><table border="0" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td class="legend">基本信息</td>
+        </tr>
+      </table></td>
+    <td class="infoBg3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="infoBg4">&nbsp;</td>
+    <td>
+
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="titleTop3">
+		<tr>
+			
+			<td valign="top"> 
+				<table border="0" cellspacing="0" cellpadding="2" >
+					<tr> 
+						<td width="100" align="right"  class="fieldName" NOWRAP >学号:</td>
+						 <td >						 
+						     201492115
+						 </td>
+						<td width="3">&nbsp;</td>
+						<td width="145" class="fieldName">
+							姓名:
+						</td>
+						<td width="3">&nbsp;</td>
+						<td>  
+							郭瑞彪
+						</td>
+					</tr>
+					<tr> 
+						<td height="3" colspan="6" ></td>
+					</tr>
+					<tr> 
+						<td width="100" align="right"  class="fieldName" NOWRAP >班级:</td>
+						 <td >						 
+						     软件1414
+						 </td>
+						<td width="3">&nbsp;</td>
+						<td width="145" class="fieldName">
+							打印日期:
+						</td>
+						<td width="3">&nbsp;</td>
+						<td>  
+							<div id="curtime"><strong id="xssj"></strong></div>
+						</td>
+					</tr>							
+
+				</table>
+				</td>
+		</tr>
+	</table>
+	</td>
+    <td class="infoBg5">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="infoBg6">&nbsp;</td>
+    <td class="infoBg2">&nbsp;</td>
+    <td class="infoBg8">&nbsp;</td>
+  </tr>
+</table>   
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="titleTop2" id="kbxx">
+		 <tr>
+		  <td class="pageAlign">
+		   <table cellpadding="0" width="100%" class="displayTag" cellspacing="0" border="1" id="user">
+				<tr>
+    <td colspan="2" class="sortable">&nbsp;</td>
+
+
+    <td width="13%" class="sortable">
+    <div align="center">
+	
+			星期一
+			
+	</div>
+	</td>
+
+    <td width="13%" class="sortable">
+    <div align="center">
+	
+			星期二
+			
+	</div>
+	</td>
+
+    <td width="13%" class="sortable">
+    <div align="center">
+	
+			星期三
+			
+	</div>
+	</td>
+
+    <td width="13%" class="sortable">
+    <div align="center">
+	
+			星期四
+			
+	</div>
+	</td>
+
+    <td width="13%" class="sortable">
+    <div align="center">
+	
+			星期五
+			
+	</div>
+	</td>
+
+    <td width="13%" class="sortable">
+    <div align="center">
+	
+			星期六
+			
+	</div>
+	</td>
+
+    <td width="13%" class="sortable">
+    <div align="center">
+	
+			星期日
+			
+	</div>
+	</td>
+
+</tr>
+
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+
+<td width="3%" rowspan="4">&nbsp;<p class="style4">上午</p></td>
+
+
+			  <td width="11%">第1节(08:00-08:45)</td>
+			 
+  
+    <td>&nbsp;
+
+     操作系统_02(软件学院B教学楼B-201)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     编译技术_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     毛泽东思想和中国特色社会主义理论体系概论_13(软件学院B教学楼B-101)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     计算机网络_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第2节(08:50-09:35)</td>
+			 
+  
+    <td>&nbsp;
+
+     操作系统_02(软件学院B教学楼B-201)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     编译技术_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     毛泽东思想和中国特色社会主义理论体系概论_13(软件学院B教学楼B-101)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     计算机网络_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第3节(10:05-10:50)</td>
+			 
+  
+    <td>&nbsp;
+
+     编译技术_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     毛泽东思想和中国特色社会主义理论体系概论_13(软件学院B教学楼B-101)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     英语写作_09(软件学院A教学楼A-421)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     操作系统_02(软件学院B教学楼B-201)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第4节(10:55-11:40)</td>
+			 
+  
+    <td>&nbsp;
+
+     编译技术_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     毛泽东思想和中国特色社会主义理论体系概论_13(软件学院B教学楼B-101)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     英语写作_09(软件学院A教学楼A-421)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     操作系统_02(软件学院B教学楼B-201)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+<tr bgcolor="#FFFFFF">
+    <td colspan="9">&nbsp;<p align="center" class="td2 style5"><strong>午 休</strong></p></td>
+</tr>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+<td width="3%" rowspan="4">&nbsp;<p class="style4">下午</p></td>
+
+
+			  <td width="11%">第5节(13:30-14:15)</td>
+			 
+  
+    <td>&nbsp;
+
+     概率与统计A_09(软件学院B教学楼B-103)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     计算机网络_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     计算机网络_03(软件学院B教学楼B-202)<br>
+
+     计算机组织与结构实验_09(软件学院C教学楼计算机组成实验室)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     体育4-羽毛球_04(软件学院体育馆111)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第6节(14:20-15:05)</td>
+			 
+  
+    <td>&nbsp;
+
+     概率与统计A_09(软件学院B教学楼B-103)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     计算机网络_03(软件学院B教学楼B-202)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     计算机网络_03(软件学院B教学楼B-202)<br>
+
+     计算机组织与结构实验_09(软件学院C教学楼计算机组成实验室)<br>
+
+</td>
+
+    <td>&nbsp;
+
+     体育4-羽毛球_04(软件学院体育馆111)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第7节(15:35-16:20)</td>
+			 
+  
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     概率与统计A_09(软件学院B教学楼B-103)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     概率与统计A_09(软件学院B教学楼B-103)<br>
+
+     计算机组织与结构实验_09(软件学院C教学楼计算机组成实验室)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第8节(16:25-17:10)</td>
+			 
+  
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     概率与统计A_09(软件学院B教学楼B-103)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     概率与统计A_09(软件学院B教学楼B-103)<br>
+
+     计算机组织与结构实验_09(软件学院C教学楼计算机组成实验室)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+<tr bgcolor="#FFFFFF">
+    <td colspan="9">&nbsp;<p align="center" class="td2 style5"><strong>晚 饭</strong></p></td>
+</tr>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+<td width="3%" rowspan="4">&nbsp;<p class="style4">晚上</p></td>
+
+
+			  <td width="11%">第9节(18:00-18:45)</td>
+			 
+  
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     科学技术史*_880(软件学院B教学楼B-203)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     科学技术史*_880(软件学院B教学楼B-203)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第10节(18:55-19:40)</td>
+			 
+  
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     科学技术史*_880(软件学院B教学楼B-203)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     科学技术史*_880(软件学院B教学楼B-203)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第11节(19:50-20:35)</td>
+			 
+  
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     科学技术史*_880(软件学院B教学楼B-203)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+     科学技术史*_880(软件学院B教学楼B-203)<br>
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+<tr bgcolor="#FFFFFF">
+
+
+			  <td width="11%">第12节(20:45-21:30)</td>
+			 
+  
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+    <td>&nbsp;
+
+&nbsp;
+
+</td>
+
+  </tr>
+
+</table>
+</td>
+</tr>
+</table>
+
+<!--
+
+
+
+
+
+<script type="text/javascript">
+  function dy(){
+    var today = new Date();
+   var timeStr = today.format("YYYY年MM月dd日hh小时mm分ss秒");
+   var time = document.getElementById("xssj");
+   time.innerHTML=timeStr;
+   beforedy();
+   document.execCommand("print");
+   afterdy();
+  }
+  Date.prototype.format = function(format){
+	 var o = {
+	 "Y+" :  this.getFullYear(), 
+	  "M+" :  this.getMonth()+1,  //month
+	  "d+" :  this.getDate(),     //day
+	  "h+" :  this.getHours(),    //hour
+	      "m+" :  this.getMinutes(),  //minute
+	      "s+" :  this.getSeconds(), //second
+	      "q+" :  Math.floor((this.getMonth()+3)/3),  //quarter
+	      "S"  :  this.getMilliseconds() //millisecond
+	   }
+	   if(/(y+)/.test(format)) {
+	    format = format.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+	   }
+	 
+	   for(var k in o) {
+	    if(new RegExp("("+ k +")").test(format)) {
+	      format = format.replace(RegExp.$1, RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+	    }
+	   }
+	 return format;
+}
+  function beforedy(){
+    document.getElementById("tblHead").style.display="none";
+	
+  var  yhlbss =  document.getElementById("yhlb").value; 
+   if("01"== yhlbss){
+    document.getElementById("xsxx").style.display="";
+    document.getElementById("kbxx").style.display="none";
+   }
+    //document.getElementById("xsxx").style.display="";  //cxl
+    //document.getElementById("kbxx").style.display="none"; //cxl
+	
+  }
+  function afterdy(){
+    document.getElementById("tblHead").style.display="";
+     var  yhlbss =  document.getElementById("yhlb").value; 
+   if("01"== yhlbss){
+     document.getElementById("xsxx").style.display="none"; 
+     document.getElementById("kbxx").style.display="";
+	 document.getElementById("kclist").style.display="";
+   }
+   
+   
+   
+	
+  }
+</script>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr><td class="Linetop"></td>
+</tr>
+</table>
+     
+<input id="yhlb" type="hidden" name="yhlb" size="15" value="01" style="width: 50px;" />
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="title" id="tblHead">
+ <tr>
+  <td>
+   <table border="0" width="100%" cellpadding="0" cellspacing="0" >
+   <tr>
+   <td width="50%" align="left" valign="middle">&nbsp;<b>选课结果列表</b>&nbsp;</td>
+
+<td width="50%" align="right">
+
+</td>
+
+</tr>
+   </table>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"  >
+ <tr>
+  <td class="Linetop"></td>
+ </tr>
+</table>
+
+
+-->
+
+
+
+
+
+
+
+<link href="/css/newcss/project.css" rel="stylesheet" type="text/css">
+ 
+
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="titleTop2">
+					 <tr>
+					  <td class="pageAlign">
+					   <table cellpadding="0" width="100%" class="displayTag" cellspacing="1" border="0" id="user">
+					    <thead>
+							<tr>
+
+
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;培养方案</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;课程号</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;课程名</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;课序号</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;学分</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;课程属性</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;考试类型</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;教师</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;大纲日历</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;修读方式</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;选课状态</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;周次</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;星期</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;节次</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;节数</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;校区</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;教学楼</th>
+
+
+
+
+<th align="center" width="100" class="sortable">&nbsp;教室</th>
+
+
+</tr>
+</thead>
+
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="3" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="3" >
+	&nbsp;1120020140</td>
+
+
+		<td rowspan="3" >
+	&nbsp;概率与统计A</td>
+
+
+		<td rowspan="3" >
+	&nbsp;09</td>
+
+
+		<td rowspan="3" >
+	&nbsp;3.0</td>
+
+
+		<td rowspan="3" >
+	&nbsp;必修</td>
+
+
+		<td rowspan="3" >
+	&nbsp;</td>
+
+
+		<td rowspan="3" >
+	&nbsp;杨彦春* </td>
+
+
+		<td rowspan="3" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1120020140&kxh=09"></td>
+
+
+		<td rowspan="3" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="3" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 1-8周上</td>
+
+<td>&nbsp; 1</td>
+
+			  <td>&nbsp;5</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-103</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 1-8周上</td>
+
+<td>&nbsp; 2</td>
+
+			  <td>&nbsp;7</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-103</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 1-8周上</td>
+
+<td>&nbsp; 4</td>
+
+			  <td>&nbsp;7</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-103</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="2" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="2" >
+	&nbsp;1070320040</td>
+
+
+		<td rowspan="2" >
+	&nbsp;毛泽东思想和中国特色社会主义理论体系概论</td>
+
+
+		<td rowspan="2" >
+	&nbsp;13</td>
+
+
+		<td rowspan="2" >
+	&nbsp;3.0</td>
+
+
+		<td rowspan="2" >
+	&nbsp;必修</td>
+
+
+		<td rowspan="2" >
+	&nbsp;</td>
+
+
+		<td rowspan="2" >
+	&nbsp;方玉梅* </td>
+
+
+		<td rowspan="2" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1070320040&kxh=13"></td>
+
+
+		<td rowspan="2" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="2" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 1-12周上</td>
+
+<td>&nbsp; 2</td>
+
+			  <td>&nbsp;3</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-101</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 1-12周上</td>
+
+<td>&nbsp; 4</td>
+
+			  <td>&nbsp;1</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-101</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="1" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="1" >
+	&nbsp;1090410140</td>
+
+
+		<td rowspan="1" >
+	&nbsp;英语写作</td>
+
+
+		<td rowspan="1" >
+	&nbsp;09</td>
+
+
+		<td rowspan="1" >
+	&nbsp;2.0</td>
+
+
+		<td rowspan="1" >
+	&nbsp;必修</td>
+
+
+		<td rowspan="1" >
+	&nbsp;</td>
+
+
+		<td rowspan="1" >
+	&nbsp;Gary* </td>
+
+
+		<td rowspan="1" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1090410140&kxh=09"></td>
+
+
+		<td rowspan="1" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="1" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 1-16周上</td>
+
+<td>&nbsp; 3</td>
+
+			  <td>&nbsp;3</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; A教学楼</td>
+
+<td>&nbsp; A-421</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="2" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="2" >
+	&nbsp;1090430110</td>
+
+
+		<td rowspan="2" >
+	&nbsp;操作系统</td>
+
+
+		<td rowspan="2" >
+	&nbsp;02</td>
+
+
+		<td rowspan="2" >
+	&nbsp;4.0</td>
+
+
+		<td rowspan="2" >
+	&nbsp;必修</td>
+
+
+		<td rowspan="2" >
+	&nbsp;</td>
+
+
+		<td rowspan="2" >
+	&nbsp;胡燕* </td>
+
+
+		<td rowspan="2" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1090430110&kxh=02"></td>
+
+
+		<td rowspan="2" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="2" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 1-16周上</td>
+
+<td>&nbsp; 4</td>
+
+			  <td>&nbsp;3</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-201</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 1-8周上</td>
+
+<td>&nbsp; 1</td>
+
+			  <td>&nbsp;1</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-201</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="2" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="2" >
+	&nbsp;1090430090</td>
+
+
+		<td rowspan="2" >
+	&nbsp;编译技术</td>
+
+
+		<td rowspan="2" >
+	&nbsp;03</td>
+
+
+		<td rowspan="2" >
+	&nbsp;4.0</td>
+
+
+		<td rowspan="2" >
+	&nbsp;必修</td>
+
+
+		<td rowspan="2" >
+	&nbsp;</td>
+
+
+		<td rowspan="2" >
+	&nbsp;江贺* </td>
+
+
+		<td rowspan="2" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1090430090&kxh=03"></td>
+
+
+		<td rowspan="2" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="2" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 1-16周上</td>
+
+<td>&nbsp; 3</td>
+
+			  <td>&nbsp;1</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-202</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 9-16周上</td>
+
+<td>&nbsp; 1</td>
+
+			  <td>&nbsp;3</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-202</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="1" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="1" >
+	&nbsp;ryumaoq(4)</td>
+
+
+		<td rowspan="1" >
+	&nbsp;体育4-羽毛球</td>
+
+
+		<td rowspan="1" >
+	&nbsp;04</td>
+
+
+		<td rowspan="1" >
+	&nbsp;1.0</td>
+
+
+		<td rowspan="1" >
+	&nbsp;任选</td>
+
+
+		<td rowspan="1" >
+	&nbsp;</td>
+
+
+		<td rowspan="1" >
+	&nbsp;李岩泽* </td>
+
+
+		<td rowspan="1" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=ryumaoq(4)&kxh=04"></td>
+
+
+		<td rowspan="1" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="1" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 1-16周上</td>
+
+<td>&nbsp; 5</td>
+
+			  <td>&nbsp;5</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; 体育馆</td>
+
+<td>&nbsp; 111</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="3" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="3" >
+	&nbsp;1090430100</td>
+
+
+		<td rowspan="3" >
+	&nbsp;计算机网络</td>
+
+
+		<td rowspan="3" >
+	&nbsp;03</td>
+
+
+		<td rowspan="3" >
+	&nbsp;3.0</td>
+
+
+		<td rowspan="3" >
+	&nbsp;必修</td>
+
+
+		<td rowspan="3" >
+	&nbsp;</td>
+
+
+		<td rowspan="3" >
+	&nbsp;姚琳* </td>
+
+
+		<td rowspan="3" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1090430100&kxh=03"></td>
+
+
+		<td rowspan="3" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="3" >
+	&nbsp;抽中</td>
+
+
+
+
+<td>&nbsp; 1-8周上</td>
+
+<td>&nbsp; 2</td>
+
+			  <td>&nbsp;5</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-202</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 1-8周上</td>
+
+<td>&nbsp; 4</td>
+
+			  <td>&nbsp;5</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-202</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 1-8周上</td>
+
+<td>&nbsp; 5</td>
+
+			  <td>&nbsp;1</td>
+			 
+<td>&nbsp; 2</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-202</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="1" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="1" >
+	&nbsp;1090461030</td>
+
+
+		<td rowspan="1" >
+	&nbsp;计算机组织与结构实验</td>
+
+
+		<td rowspan="1" >
+	&nbsp;09</td>
+
+
+		<td rowspan="1" >
+	&nbsp;1.5</td>
+
+
+		<td rowspan="1" >
+	&nbsp;必修</td>
+
+
+		<td rowspan="1" >
+	&nbsp;</td>
+
+
+		<td rowspan="1" >
+	&nbsp;迟宗正* </td>
+
+
+		<td rowspan="1" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1090461030&kxh=09"></td>
+
+
+		<td rowspan="1" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="1" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 9-16周上</td>
+
+<td>&nbsp; 4</td>
+
+			  <td>&nbsp;5</td>
+			 
+<td>&nbsp; 4</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; C教学楼</td>
+
+<td>&nbsp; 计算机组成实验室</td>
+
+</tr>
+
+
+<tr class="odd" onMouseOut="this.className='even';" onMouseOver="this.className='evenfocus';">
+
+
+
+		<td rowspan="3" >
+	&nbsp;2014级软件工程类</td>
+
+
+		<td rowspan="3" >
+	&nbsp;1000010130</td>
+
+
+		<td rowspan="3" >
+	&nbsp;科学技术史*</td>
+
+
+		<td rowspan="3" >
+	&nbsp;880</td>
+
+
+		<td rowspan="3" >
+	&nbsp;2.0</td>
+
+
+		<td rowspan="3" >
+	&nbsp;选修</td>
+
+
+		<td rowspan="3" >
+	&nbsp;</td>
+
+
+		<td rowspan="3" >
+	&nbsp;王子彦* </td>
+
+
+		<td rowspan="3" align="center">
+	<img src="/img/icon/calendar.jpg" style="cursor: hand;" title="大纲日历" onclick="CxJxDgRl(this)" name="actionType=6&oper=QueryDgRl&kch=1000010130&kxh=880"></td>
+
+
+		<td rowspan="3" >
+	&nbsp;正常</td>
+
+
+		<td rowspan="3" >
+	&nbsp;选中</td>
+
+
+
+
+<td>&nbsp; 1-5周上</td>
+
+<td>&nbsp; 2</td>
+
+			  <td>&nbsp;9</td>
+			 
+<td>&nbsp; 3</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-203</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 1-5周上</td>
+
+<td>&nbsp; 4</td>
+
+			  <td>&nbsp;9</td>
+			 
+<td>&nbsp; 3</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-203</td>
+
+</tr>
+
+
+<tr class=odd onMouseOut=this.className='even'; onMouseOver=this.className='evenfocus';>
+
+<td>&nbsp; 6周上</td>
+
+<td>&nbsp; 2</td>
+
+			  <td>&nbsp;9</td>
+			 
+<td>&nbsp; 3</td>
+
+<td>&nbsp; 软件学院</td>
+
+<td>&nbsp; B教学楼</td>
+
+<td>&nbsp; B-203</td>
+
+</tr>
+
+</table>
+</td>
+</tr>
+</table>
+<Script language="JavaScript">
+function CxJxDgRl( a){
+	window.open("xkAction.do?"+a.name);
+}
+</Script>
+
+
+
+
+
+
+
+
+
+<table width="100%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+
+<td height="21" bgcolor="#F2F2F2"><div align="right">共23.5学分</div></td>
+
+</tr>
+</table>  
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

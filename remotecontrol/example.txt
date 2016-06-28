@@ -1,0 +1,2 @@
+one: shutdown -s -t 120 -c "Hello Python"
+two: dir
