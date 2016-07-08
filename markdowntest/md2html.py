@@ -6,7 +6,10 @@
 
 from markdown import markdown
 import optparse
-
+# to solve the problem: ascii codec cann't decode byte 0xe5 in position 34: ordinal not in range(128)
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 # 创建一个专门用于处理解析器的工具类
 class MDParser:
@@ -18,7 +21,8 @@ class MDParser:
     def parsre(self, infile):
         infile = open(infile, 'rb')
         indata = infile.read()
-        indata = u'%s' % indata
+        # indata = u'%s' % indata
+        indata = indata.encode('utf8')
         infile.close()
         parsedata = markdown(indata)
         return parsedata

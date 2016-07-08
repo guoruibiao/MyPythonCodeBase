@@ -1,0 +1,79 @@
+
+            <html><head><meta charset='utf-8'><title>haha</title><meta name="viewport" content="width=device-width, initial-scale=1">
+ 	 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+ 	 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+ 	 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script></head><body><div class='container'><div class="row-fluid">
+		<div class="span12">
+            <h2>A tool for markdown to html</h2>
+<p>哈哈哈
+coding:utf-8<br>
+<strong>author</strong> = 'Mark sinoberg'<br>
+<strong>date</strong> = '2016/7/8'<br></p>
+<p>```
+from markdown import markdown
+import optparse</p>
+<p>class MDParser:</p>
+<pre><code>def __init__(self):
+    print 'Ready to parser markdown source file to html file.'
+
+def parsre(self, infile):
+    infile = open(infile, 'rb')
+    indata = infile.read()
+    indata = u'%s'%indata
+    infile.close()
+    parsedata = markdown(indata)
+    return parsedata
+
+def appendHead(self, data, title):
+    head = \
+        """
+        &lt;html&gt;&lt;head&gt;&lt;meta charset='utf-8'&gt;&lt;title&gt;%s&lt;/title&gt;&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+ &lt;link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css"&gt;
+ &lt;script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+ &lt;script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"&gt;&lt;/script&gt;&lt;/head&gt;&lt;body&gt;&lt;div class='container' align='center'&gt;
+        """ % title
+    newdata = head + data
+    return newdata
+
+def appendTail(self, data):
+    tail = \
+        """
+        &lt;/div&gt;&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://apps.bdimg.com/libs/bootstrap/3.2.0/js/bootstrap.min.js"&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+        """
+    data += tail
+    return data
+
+def output(self, data, outfile):
+    outfile = open(outfile, 'wb')
+    outfile.write(data)
+    outfile.close()
+    print "Translated Succeed!"
+</code></pre>
+<p>```</p>
+<p>```
+    usage = \
+        """
+        '-i', --infile . source markdown file
+        '-o', --outfile. target html file
+        '-s', --style. stylesheet for output html file,this is not for mandatory
+        """
+    parser = optparse.OptionParser(usage)</p>
+<pre><code>parser.add_option('-i', '--input', dest='infile', type='string', help='input markdown source file')
+parser.add_option('-o', '--output', dest='outfile', type='string', help='out put html file')
+(options, args) = parser.parse_args()
+infile = options.infile
+outfile = options.outfile
+
+if __name__ == "__main__":
+    tool = MDParser()
+    title = raw_input('Please input the title you want:\n')
+    parsedata = tool.parsre(infile)
+    data = tool.appendHead(parsedata, title)
+    fulldata = tool.appendTail(data)
+    tool.output(fulldata, outfile)
+</code></pre>
+<p>```</p>
+            </div></div></div><script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.2.0/js/bootstrap.min.js"></script></body></html>
+            
