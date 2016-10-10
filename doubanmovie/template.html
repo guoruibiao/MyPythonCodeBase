@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+{% for movie in movies %}
+<div style="width: 1080px; align: cener; margin-left: 10%">
+    <div>
+        <h1>{{movie.title}}&nbsp;&nbsp;<sub>{{movie.original_title}}&nbsp;&nbsp;<span>豆瓣评分：{{movie.average}}</span>&nbsp;&nbsp;&nbsp;<span>获得星星数：{{movie.stars}}</span></sub></h1><br>
+
+         剧照：<img src="{{movie.image}}">
+        <ul style="list-style: none;">
+            导 演：
+            {% for director in movie.directors%}
+            <li>{{director.name}}<br><img src="{{director.photo}}"></li>
+            {%endfor%}
+        </ul>
+        <br>
+    </div>
+    <div>
+        演员表：
+        <ul style="list-style: none">
+            {% for avatar in movie.avatars%}
+            <li>{{avatar.name}}<br><img src="{{avatar.photo}}"></li>
+            {%endfor%}
+        </ul>
+        <br>
+
+    </div>
+    <hr>
+</div>
+{% endfor%}
