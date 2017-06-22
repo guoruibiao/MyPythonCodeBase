@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>技术雷达图</title>
+    <script src="/static/echarts.min.js"></script>
+    <script src="/static/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+    <input type="text" id="username" placeholder="请输入CSDN博主ID"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" id="compute" value="评估"><br/>
+    <div id="container" style="width: 600px;height:400px;"></div>
+</body>
+<!--<script src="https://cdn.bootcss.com/echarts/3.6.2/echarts.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+
+<script>
+    var mycharts = echarts.init(document.getElementById('container'));
+    mycharts.showLoading();
+    var names = [];
+    var scores = [];
+    function prepare_data() {
+        $(document).ready(function () {
+            $.ajax({
+                url: 'http://localhost:8080/api/user/' + $("#username").val(),
+                dataType: 'json',
+                success: function (result) {
+                    mycharts.hideLoading();
+                    // 计算相关数据
+                    for (var index = 0; index < result.length; index++) {
+                        names.push({
+                            name: result[index].name,
+                            max: 25
+                        });
+                        scores.push(
+                            result[index].score
+                        );
+                    }
+                    console.log(JSON.stringify(names));
+                    console.log(JSON.stringify(scores));
+                    show_data();
+                },
+                error: function (err) {
+                    console.log(JSON.stringify(err));
+                }
+            })
+        });
+    }
+
+    function show_data() {
+        var option = {
+            title: {
+                text: '基础雷达图'
+            },
+            tooltip: {},
+            legend: {
+                data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+            },
+            radar: {
+                // shape: 'circle',
+                // indicator: [
+                //     { name: '销售（sales）', max: 6500 },
+                //     { name: '管理（Administration）', max: 16000 },
+                //     { name: '信息技术（Information Techology）', max: 30000 },
+                //     { name: '客服（Customer Support）', max: 38000 },
+                //     { name: '研发（Development）', max: 52000 },
+                //     { name: '市场（Marketing）', max: 25000 }
+                // ]
+                indicator: names
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                areaStyle: { normal: {} },
+                data: [
+                    {
+                        // value: [4300, 10000, 28000, 35000, 50000, 19000],
+                        value: scores,
+                        name: '预算分配（Allocated Budget）'
+                    }
+                ]
+            }]
+        };
+
+        mycharts.setOption(option);
+
+        // 触发ajax事件，计算给定用户名博主的技术雷达计算。
+        // 先响应一个加载动画比较好。
+        mycharts.hideLoading();
+    }
+
+
+
+    $("#compute").click(function () {
+        prepare_data();
+        
+    });
+
+</script>
+
+</html>
