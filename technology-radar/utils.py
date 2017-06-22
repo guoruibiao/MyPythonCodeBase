@@ -14,7 +14,11 @@ def compute(username):
         posturls = radar.get_posts(catagory_url=catagory['url'], counts=counts)
         score = 0
         for posturl in posturls:
-            score += radar.get_detail(posturl=posturl)
+             try:
+                score += radar.get_detail(posturl=posturl)
+            except Exception as e:
+                print(e)
+                continue
         print('{}的总体得分为：{}'.format(catagory['name'], score))
         catagory['score'] = score
     return catagroies
