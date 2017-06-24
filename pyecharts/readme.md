@@ -2,6 +2,8 @@
 
 总的来说，这个实现的有点鸡肋。本意是后台通过代码提供数据，然后获取前台浏览器渲染后的echarts图片，再用于程序的其他方面的`展示`。
 
+![简易效果图](https://raw.githubusercontent.com/guoruibiao/MyPythonCodeBase/master/pyecharts/target.png)
+
 ---
 
 ### 需要注意的是：
